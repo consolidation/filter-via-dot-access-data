@@ -1,11 +1,11 @@
 <?php
 
-namespace FilterViaDotAccessData;
+namespace Consolidation\Filter;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\BufferedOutput;
 
-class ExampleCommandsTest extends TestCase
+class OpCommandsTest extends TestCase
 {
     /** @var string[] */
     protected $commandClasses;
@@ -25,10 +25,10 @@ class ExampleCommandsTest extends TestCase
     public function setUp()
     {
         // Store the command classes we are going to test
-        $this->commandClasses = [ \FilterViaDotAccessData\Cli\ExampleCommands::class ];
+        $this->commandClasses = [ \Consolidation\Filter\Cli\OpCommands::class ];
 
         // Define our invariants for our test
-        $this->appName = 'TestFixtureApp';
+        $this->appName = 'DotProcessFixtureApp';
         $this->appVersion = '1.0.1';
     }
 
@@ -43,18 +43,23 @@ class ExampleCommandsTest extends TestCase
         return [
 
             [
-                '2 times 2 is 4', self::STATUS_OK,
-                'multiply', 2, 2,
+                'a=b', self::STATUS_OK,
+                'evaluate', 'a=b',
             ],
 
             [
-                'Multiply two numbers together', self::STATUS_OK,
-                'list',
+                '!a=b', self::STATUS_OK,
+                'evaluate', 'a!=b',
             ],
 
             [
-                'Not enough arguments (missing: "b").', self::STATUS_ERROR,
-                'multiply', 7,
+                'a=b&c=d|x=y', self::STATUS_OK,
+                'evaluate', 'a=b&c=d|x=y',
+            ],
+
+            [
+                'Could not parse expression a', self::STATUS_ERROR,
+                'evaluate', 'a&b',
             ],
         ];
     }

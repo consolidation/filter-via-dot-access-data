@@ -24,11 +24,11 @@ $classLoader = require $autoloaderPath;
 
 // Customization variables
 $argv = $_SERVER['argv'];
-$appName = "FilterViaDotAccessData";
+$appName = "Dot-Process";
 $appVersion = trim(file_get_contents(__DIR__ . '/VERSION'));
-$commandClasses = [ \FilterViaDotAccessData\Cli\ExampleCommands::class ];
+$commandClasses = [ \Consolidation\Filter\Cli\OpCommands::class ];
 $selfUpdateRepository = 'consolidation/filter-via-dot-access-data';
-$configPrefix = 'FILTERVIADOTACCESSDATA';
+$configPrefix = 'DOTPROCESS';
 $configFilePath = getenv($configPrefix . '_CONFIG') ?: getenv('HOME') . '/.filter-via-dot-access-data/filter-via-dot-access-data.yml';
 
 // Define our Runner, and pass it the command classes we provide.

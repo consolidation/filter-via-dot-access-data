@@ -10,12 +10,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "FilterViaDotAccessData\\": "src"
+            "Consolidation\\Filter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "FilterViaDotAccessData\\": "tests/src"
+            "Consolidation\\Filter\\": "tests/src"
         }
     },
     "require": {
