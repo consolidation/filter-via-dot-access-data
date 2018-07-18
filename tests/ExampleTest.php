@@ -1,6 +1,6 @@
 <?php
 
-namespace ExampleProject;
+namespace FilterViaDotAccessData;
 
 use PHPUnit\Framework\TestCase;
 

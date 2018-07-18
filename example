@@ -24,12 +24,12 @@ $classLoader = require $autoloaderPath;
 
 // Customization variables
 $argv = $_SERVER['argv'];
-$appName = "ExampleProject";
+$appName = "FilterViaDotAccessData";
 $appVersion = trim(file_get_contents(__DIR__ . '/VERSION'));
-$commandClasses = [ \ExampleProject\Cli\ExampleCommands::class ];
-$selfUpdateRepository = 'g1a/starter';
-$configPrefix = 'EXAMPLEPROJECT';
-$configFilePath = getenv($configPrefix . '_CONFIG') ?: getenv('HOME') . '/.example-project/example-project.yml';
+$commandClasses = [ \FilterViaDotAccessData\Cli\ExampleCommands::class ];
+$selfUpdateRepository = 'consolidation/filter-via-dot-access-data';
+$configPrefix = 'FILTERVIADOTACCESSDATA';
+$configFilePath = getenv($configPrefix . '_CONFIG') ?: getenv('HOME') . '/.filter-via-dot-access-data/filter-via-dot-access-data.yml';
 
 // Define our Runner, and pass it the command classes we provide.
 $runner = new \Robo\Runner($commandClasses);

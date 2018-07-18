@@ -1,6 +1,6 @@
 <?php
 
-namespace ExampleProject;
+namespace FilterViaDotAccessData;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\BufferedOutput;
@@ -25,7 +25,7 @@ class ExampleCommandsTest extends TestCase
     public function setUp()
     {
         // Store the command classes we are going to test
-        $this->commandClasses = [ \ExampleProject\Cli\ExampleCommands::class ];
+        $this->commandClasses = [ \FilterViaDotAccessData\Cli\ExampleCommands::class ];
 
         // Define our invariants for our test
         $this->appName = 'TestFixtureApp';
