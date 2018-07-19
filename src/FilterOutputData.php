@@ -24,7 +24,7 @@ class FilterOutputData
         foreach ($data as $id => $value) {
             $row = new Data($value);
             if (!isset($value['id'])) {
-                $row['id'] = $id;
+                $row->set('id', $id);
             }
 
             if ($op->test($row)) {

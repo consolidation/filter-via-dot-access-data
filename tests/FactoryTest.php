@@ -111,6 +111,10 @@ class FactoryTest extends TestCase
             ['a*=b|c*=d', ['a' => 'xb', 'c' => 'xd'], true,],
             ['a*=b|c*=d', ['a' => 'xy', 'c' => 'xy'], false,],
 
+            ['a!=b', ['a' => 'b'], false,],
+            ['a!=b', ['a' => 'abc'], true,],
+            ['!a=b', ['b' => 'b'], true,],
+
         ];
     }
 
