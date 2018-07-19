@@ -89,12 +89,3 @@ class OperatorFactory implements FactoryInterface
         return $matches;
     }
 }
-
-        // Find all quoted strings in $expression and save their values
-        // in a value map
-
-        // Substitute references from the value map into the expression
-
-        // Split the expression on the logical operators (& and | only)
-
-        // Iterate over the strings between the logical operators

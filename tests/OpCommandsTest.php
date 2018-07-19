@@ -61,6 +61,14 @@ class OpCommandsTest extends TestCase
                 'Could not parse expression a', self::STATUS_ERROR,
                 'parse', 'a&b',
             ],
+
+            [
+                'a:
+  color: red
+  shape: round', self::STATUS_OK,
+                'edit', 'tests/fixtures/data.yml', '--filter=color=red',
+            ],
+
         ];
     }
 
