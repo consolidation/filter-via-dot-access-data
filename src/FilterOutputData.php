@@ -21,14 +21,14 @@ class FilterOutputData
     {
         $result = [];
 
-        foreach ($data as $key => $value) {
+        foreach ($data as $id => $value) {
             $row = new Data($value);
-            if (!isset($value['key'])) {
-                $row['key'] = $key;
+            if (!isset($value['id'])) {
+                $row['id'] = $id;
             }
 
             if ($op->test($row)) {
-                $result[$key] = $value;
+                $result[$id] = $value;
             }
         }
 

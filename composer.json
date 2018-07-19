@@ -20,8 +20,7 @@
     },
     "require": {
         "php": ">=5.5.0",
-        "symfony/finder": "^2.8|^3|^4",
-        "symfony/filesystem": "^2.8|^3|^4"
+        "dflydev/dot-access-data": "^2"
     },
     "require-dev": {
         "consolidation/Robo": "^1.2.3",
@@ -30,7 +29,7 @@
         "php-http/guzzle6-adapter": "^1.1",
         "phpunit/phpunit": "^5",
         "g1a/composer-test-scenarios": "^2",
-        "satooshi/php-coveralls": "^2",
+        "php-coveralls/php-coveralls": "^2",
         "squizlabs/php_codesniffer": "^2.8"
     },
     "scripts": {

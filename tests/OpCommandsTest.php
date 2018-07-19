@@ -44,22 +44,22 @@ class OpCommandsTest extends TestCase
 
             [
                 'a=b', self::STATUS_OK,
-                'evaluate', 'a=b',
+                'parse', 'a=b',
             ],
 
             [
                 '!a=b', self::STATUS_OK,
-                'evaluate', 'a!=b',
+                'parse', 'a!=b',
             ],
 
             [
                 'a=b&c=d|x=y', self::STATUS_OK,
-                'evaluate', 'a=b&c=d|x=y',
+                'parse', 'a=b&c=d|x=y',
             ],
 
             [
                 'Could not parse expression a', self::STATUS_ERROR,
-                'evaluate', 'a&b',
+                'parse', 'a&b',
             ],
         ];
     }
