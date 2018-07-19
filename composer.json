@@ -20,7 +20,7 @@
     },
     "require": {
         "php": ">=5.5.0",
-        "dflydev/dot-access-data": "^2"
+        "dflydev/dot-access-data": "^1.1.0"
     },
     "require-dev": {
         "consolidation/Robo": "^1.2.3",
