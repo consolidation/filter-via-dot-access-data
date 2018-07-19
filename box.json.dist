@@ -1,9 +1,9 @@
 {
-  "alias": "example.phar",
+  "alias": "dot-process.phar",
   "chmod": "0755",
   "compactors": [],
   "directories": ["src"],
-  "files": ["example", "README.md", "VERSION"],
+  "files": ["dot-process", "README.md", "VERSION"],
   "finder": [
     {
       "name": "*.php",
@@ -19,7 +19,7 @@
   ],
   "git-commit": "git-commit",
   "git-version": "git-version",
-  "output": "example.phar",
-  "main": "example",
+  "output": "dot-process.phar",
+  "main": "dot-process",
   "stub": true
 }
