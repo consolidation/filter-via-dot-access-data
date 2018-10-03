@@ -51,7 +51,7 @@
             "@cs"
         ],
         "release": [
-            "( echo && echo 'Ensure that VERSION file contains the version to release.' && echo \"Current version: $(cat VERSION)\" && tag=$(cat VERSION) && git tag \"$tag\" && git push origin \"$tag\" )"
+            "release VERSION"
         ],
         "scenario": "scenarios/install",
         "post-update-cmd": [

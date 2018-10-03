@@ -12,6 +12,41 @@ This project uses [dflydev/dot-access-data](https://github.com/dflydev/dot-acces
 
 This project provides a simple logic expression evaluator which can be used in conjunction with [dflydev/dot-access-data](https://github.com/dflydev/dot-access-data) to filter out results of the sort that you might return as a RowsOfFields object, or a nested yaml/json array.
 
+### API
+
+To use this filter in your annotated-commands-aware application (see [g1a/starter](https://github.com/g1a/starter)), ensure that the filter hooks are registered with 
+```
+$commandClasses = [ 
+    \Consolidation\Filter\Hooks\FilterHooks::class,   // Filter hooks
+    \MyApp\Commands\MyCommands::class,                // Commandfiles for your application
+];
+$runner = new \Robo\Runner($commandClasses);
+```
+Then, any command that returns RowsOfFields data (see [consolidation/output-formatters](https://github.com/consolidation/output-formatters)) or an array may utilize the output filter feature simply by annotating its command method with `@filter-output`.
+```
+    /**
+     * Convert a command from one format to another, potentially with filtering.
+     *
+     * @command example
+     * @filter-output
+     * @return array
+     */
+    public function example(array $parameters, $options = ['format' => 'yaml'])
+    {
+        return $this->doSomething($parameters);
+    }
+```
+Annotating a command in this way will automaitically attach a `--filter[=FILTER]` option to the command. The output of the command may then be filtered by providing a simple expression:
+```
+$ mycmd example p1 p2 --filter='color=red'
+```
+The filter decides whether to include or exclude each **top-level element** based on the result of evaluating the provided expression on each element.
+
+- Nested data elements may be tested, e.g. via `attributes.color=red`
+- Simple boolean logic may be used, e.g. `color=red&shape=round`
+
+Parenthesis are not supported.
+
 ### Commandline Tool
 
 This project is bundled with a simple commandline tool, `dot-process`. It is similar to a simple version of `jq`. It is intended for demonstration purposes only.

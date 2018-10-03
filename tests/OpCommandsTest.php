@@ -25,7 +25,7 @@ class OpCommandsTest extends TestCase
     public function setUp()
     {
         // Store the command classes we are going to test
-        $this->commandClasses = [ \Consolidation\Filter\Cli\OpCommands::class ];
+        $this->commandClasses = [ \Consolidation\Filter\Cli\OpCommands::class, \Consolidation\Filter\Hooks\FilterHooks::class ];
 
         // Define our invariants for our test
         $this->appName = 'DotProcessFixtureApp';

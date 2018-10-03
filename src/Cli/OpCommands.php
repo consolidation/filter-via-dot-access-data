@@ -43,24 +43,6 @@ class OpCommands extends \Robo\Tasks
     }
 
     /**
-     * @hook alter @filter-output
-     * @option $filter Filter output based on provided expression
-     * @default $filter ''
-     */
-    public function filterOutput($result, CommandData $commandData)
-    {
-        $expr = $commandData->input()->getOption('filter');
-        if (!empty($expr)) {
-            $factory = LogicalOpFactory::get();
-            $op = $factory->evaluate($expr);
-            $filter = new FilterOutputData();
-            $result = $filter->filter($result, $op);
-        }
-
-        return $result;
-    }
-
-    /**
      * Read the data provided to this command.
      */
     protected function read($data, $in)
