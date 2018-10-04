@@ -40,6 +40,14 @@ Annotating a command in this way will automaitically attach a `--filter[=FILTER]
 ```
 $ mycmd example p1 p2 --filter='color=red'
 ```
+A `contains` comparison may be done via the `*=` operator:
+```
+$ mycmd example p1 p2 --filter='color*=red'
+```
+And, finally, regex compares are also available via `~=`:
+```
+$ mycmd example p1 p2 --filter='color~=#^red.*#'
+```
 The filter decides whether to include or exclude each **top-level element** based on the result of evaluating the provided expression on each element.
 
 - Nested data elements may be tested, e.g. via `attributes.color=red`
