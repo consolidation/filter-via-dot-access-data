@@ -34,6 +34,7 @@ class OpCommands extends \Robo\Tasks
      *
      * @command edit
      * @aliases ed
+     * @filter-default-field color
      * @filter-output
      * @return array
      */
