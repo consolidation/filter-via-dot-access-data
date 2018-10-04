@@ -21,22 +21,9 @@ class FilterHooks
             $factory = LogicalOpFactory::get();
             $op = $factory->evaluate($expr);
             $filter = new FilterOutputData();
-            $result = $this->wrapFilteredResult($filter->filter($result, $op), get_class($result));
+            $result = $filter->filter($result, $op);
         }
 
         return $result;
-    }
-
-    /**
-     * If the source data was wrapped in a marker class such
-     * as RowsOfFields, then re-apply the wrapper.
-     */
-    protected function wrapFilteredResult($data, $sourceClass)
-    {
-        if (!$sourceClass) {
-            return $data;
-        }
-
-        return new $sourceClass($data);
     }
 }
