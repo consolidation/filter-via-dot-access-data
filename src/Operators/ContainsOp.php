@@ -27,6 +27,9 @@ class ContainsOp implements OperatorInterface
     public function test(Data $row)
     {
         $value = $row->get($this->key);
+        if (is_array($value)) {
+            return in_array($this->comparitor, $value);
+        }
         return strpos($value, $this->comparitor) !== false;
     }
 

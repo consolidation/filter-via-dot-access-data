@@ -83,7 +83,7 @@ class OperatorFactory implements FactoryInterface
     {
         // If there is a default field, then any expression that is missing
         // an operator will be interpreted as "default field contains value".
-        if (preg_match('#^[a-zA-Z0-9_.:-]+$#', $expression) && ($defaultField !== false)) {
+        if (preg_match('#^[a-zA-Z0-9 _.:-]+$#', $expression) && ($defaultField !== false)) {
             return [$defaultField, '*=', $expression];
         }
         if (!preg_match('#([^!~*=]*)(!?~?\*?=)(.*)#', $expression, $matches)) {
