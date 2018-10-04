@@ -38,7 +38,7 @@ class LogicalOpFactory implements FactoryInterface
      * @param string $expression
      * @return OperatorInterface
      */
-    public function evaluate($expression)
+    public function evaluate($expression, $default_field = false)
     {
         $exprSet = $this->splitByLogicOp($expression);
         $result = false;
@@ -46,7 +46,7 @@ class LogicalOpFactory implements FactoryInterface
         foreach ($exprSet as $exprWithLogicOp) {
             $logicOp = $exprWithLogicOp[1];
             $expr = $exprWithLogicOp[2];
-            $rhs = $this->factory->evaluate($expr);
+            $rhs = $this->factory->evaluate($expr, $default_field);
             $result = $this->combineUsingLogicalOp($result, $logicOp, $rhs);
         }
 

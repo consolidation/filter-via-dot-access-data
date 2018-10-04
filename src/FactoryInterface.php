@@ -17,5 +17,5 @@ interface FactoryInterface
      * @param string $expression
      * @return OperatorInterface
      */
-    public function evaluate($expression);
+    public function evaluate($expression, $defaultField = false);
 }

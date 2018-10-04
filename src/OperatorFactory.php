@@ -34,18 +34,18 @@ class OperatorFactory implements FactoryInterface
      * @param string $expression
      * @return OperatorInterface
      */
-    public function evaluate($expression)
+    public function evaluate($expression, $defaultField = false)
     {
         if ($expression[0] == '!') {
-            $op = $this->evaluateNonNegated(substr($expression, 1));
+            $op = $this->evaluateNonNegated(substr($expression, 1), $defaultField);
             return new NotOp($op);
         }
-        return $this->evaluateNonNegated($expression);
+        return $this->evaluateNonNegated($expression, $defaultField);
     }
 
-    protected function evaluateNonNegated($expression)
+    protected function evaluateNonNegated($expression, $defaultField = false)
     {
-        list($key, $op, $comparitor) = $this->splitOnOperator($expression);
+        list($key, $op, $comparitor) = $this->splitOnOperator($expression, $defaultField);
         if (empty($key) || empty($op)) {
             throw new \Exception('Could not parse expression ' . $expression);
         }
@@ -79,8 +79,13 @@ class OperatorFactory implements FactoryInterface
      * @param string @expression
      * @return array
      */
-    protected function splitOnOperator($expression)
+    protected function splitOnOperator($expression, $defaultField = false)
     {
+        // If there is a default field, then any expression that is missing
+        // an operator will be interpreted as "default field contains value".
+        if (preg_match('#^[a-zA-Z0-9_.:-]+$#', $expression) && ($defaultField !== false)) {
+            return [$defaultField, '*=', $expression];
+        }
         if (!preg_match('#([^!~*=]*)(!?~?\*?=)(.*)#', $expression, $matches)) {
             return ['', '', ''];
         }

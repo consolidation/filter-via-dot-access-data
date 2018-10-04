@@ -69,6 +69,13 @@ class OpCommandsTest extends TestCase
                 'edit', 'tests/fixtures/data.yml', '--filter=color=red',
             ],
 
+            [
+                'b:
+  color: blue
+  shape: square', self::STATUS_OK,
+                'edit', 'tests/fixtures/data.yml', '--filter=blue',
+            ],
+
         ];
     }
 

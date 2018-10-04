@@ -17,11 +17,12 @@ class FilterHooks
     public function filterOutput($result, CommandData $commandData)
     {
         $expr = $commandData->input()->getOption('filter');
+        $default_field = $commandData->annotationData()->get('filter-default-field');
         if (!empty($expr)) {
             $factory = LogicalOpFactory::get();
-            $op = $factory->evaluate($expr);
+            $op = $factory->evaluate($expr, $default_field);
             $filter = new FilterOutputData();
-            $result = $this->wrapFilteredResult($filter->filter($result, $op), get_class($result));
+            $result = $this->wrapFilteredResult($filter->filter($result, $op), $result);
         }
 
         return $result;
@@ -31,11 +32,12 @@ class FilterHooks
      * If the source data was wrapped in a marker class such
      * as RowsOfFields, then re-apply the wrapper.
      */
-    protected function wrapFilteredResult($data, $sourceClass)
+    protected function wrapFilteredResult($data, $source)
     {
-        if (!$sourceClass) {
+        if (!$source instanceof \ArrayObject) {
             return $data;
         }
+        $sourceClass = get_class($source);
 
         return new $sourceClass($data);
     }
