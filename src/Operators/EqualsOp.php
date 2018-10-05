@@ -27,7 +27,7 @@ class EqualsOp implements OperatorInterface
     public function test(Data $row)
     {
         $value = $row->get($this->key);
-        return $this->comparitor == $value;
+        return strcasecmp($this->comparitor, $value) == 0;
     }
 
     /**

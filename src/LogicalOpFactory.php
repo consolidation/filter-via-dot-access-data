@@ -58,30 +58,46 @@ class LogicalOpFactory implements FactoryInterface
      * produce a result as :
      *
      * [
-     *  [
-     *    0 => 'a=b',
+     *   [
+     *     0 => 'a=b',
      *     1 => '',
      *     2 => 'a=b',
-     *   ),
+     *   ],
      *   [
-     *     0 => '&c=d',
-     *     1 => '&',
+     *     0 => '&&c=d',
+     *     1 => '&&',
      *     2 => 'c=d',
-     *   ),
+     *   ],
      *   [
-     *     0 => '|x=y',
-     *     1 => '|',
+     *     0 => '||x=y',
+     *     1 => '||',
      *     2 => 'x=y',
-     *   ),
-     * )
+     *   ],
+     * ]
+     *
+     * This is the data structure returned by the former preg_match_all call
+     * used, which was:
+     *
+     * preg_match_all('#([&|]*)([^&|]+)#', $expression, $exprSet, PREG_SET_ORDER)
+     *
+     * The new algorithm splices the expressions together manually, as it was
+     * difficult to get preg_match_all to match && and || reliably.
      *
      * @param string $expression
      * @return array
      */
     protected function splitByLogicOp($expression)
     {
-        if (!preg_match_all('#([&|]*)([^&|]+)#', $expression, $exprSet, PREG_SET_ORDER)) {
-            throw new \Exception('Could not evaluate logical expression ' . $expression);
+        if (!preg_match_all('#(&&|\|\|)#', $expression, $matches, PREG_OFFSET_CAPTURE)) {
+            return [ [$expression, '', $expression] ];
+        }
+        $exprSet = [];
+        $i = 0;
+        foreach ($matches as $opWithOffset) {
+            list($op, $offset) = $opWithOffset[0];
+            $expr = substr($expression, $i, $i + $offset);
+            $i = $i + $offset + strlen($op);
+            $exprSet[] = [ "$op$expr", $op, $expr, ];
         }
         return $exprSet;
     }
@@ -121,9 +137,9 @@ class LogicalOpFactory implements FactoryInterface
     protected function createLogicalOp(OperatorInterface $lhs, $logicOp, OperatorInterface $rhs)
     {
         switch ($logicOp) {
-            case '&':
+            case '&&':
                 return new LogicalAndOp($lhs, $rhs);
-            case '|':
+            case '||':
                 return new LogicalOrOp($lhs, $rhs);
         }
         throw new \Exception('Impossible logicOp received: ' . $logicOp);
