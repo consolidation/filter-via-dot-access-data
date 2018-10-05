@@ -53,13 +53,13 @@ class OpCommandsTest extends TestCase
             ],
 
             [
-                'a=b&c=d|x=y', self::STATUS_OK,
-                'parse', 'a=b&c=d|x=y',
+                'a=b&&c=d||x=y', self::STATUS_OK,
+                'parse', 'a=b&&c=d||x=y',
             ],
 
             [
                 'Could not parse expression a', self::STATUS_ERROR,
-                'parse', 'a&b',
+                'parse', 'a&&b',
             ],
 
             [
