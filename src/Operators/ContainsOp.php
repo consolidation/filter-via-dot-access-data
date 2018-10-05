@@ -30,7 +30,7 @@ class ContainsOp implements OperatorInterface
         if (is_array($value)) {
             return in_array($this->comparitor, $value);
         }
-        return strpos($value, $this->comparitor) !== false;
+        return stripos($value, $this->comparitor) !== false;
     }
 
     /**
