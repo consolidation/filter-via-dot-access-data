@@ -34,6 +34,6 @@ class LogicalOrOp implements OperatorInterface
      */
     public function __toString()
     {
-        return "{$this->lhs}|{$this->rhs}";
+        return "{$this->lhs}||{$this->rhs}";
     }
 }
