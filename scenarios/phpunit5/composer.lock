@@ -276,19 +276,20 @@
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "3.2.1",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "d78ef59aea19d3e2e5a23f90a055155ee78a0ad5"
+                "reference": "853d2d462a191d44a25a5593d8fe2c4a1e59e382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/d78ef59aea19d3e2e5a23f90a055155ee78a0ad5",
-                "reference": "d78ef59aea19d3e2e5a23f90a055155ee78a0ad5",
+                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/853d2d462a191d44a25a5593d8fe2c4a1e59e382",
+                "reference": "853d2d462a191d44a25a5593d8fe2c4a1e59e382",
                 "shasum": ""
             },
             "require": {
+                "dflydev/dot-access-data": "^1.1.0",
                 "php": ">=5.4.0",
                 "symfony/console": "^2.8|^3|^4",
                 "symfony/finder": "^2.5|^3|^4"
@@ -327,7 +328,7 @@
                 }
             ],
             "description": "Format text by applying transformations provided by plug-in formatters.",
-            "time": "2018-05-25T18:02:34+00:00"
+            "time": "2018-10-16T01:14:51+00:00"
         },
         {
             "name": "consolidation/robo",
@@ -1172,16 +1173,16 @@
         },
         {
             "name": "php-http/client-common",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/client-common.git",
-                "reference": "949ee8a8cba5fa2abe839c87bf7b885ac3330589"
+                "reference": "0b9ce659aa46aee106f8c66597ea0c070fcd9dff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/client-common/zipball/949ee8a8cba5fa2abe839c87bf7b885ac3330589",
-                "reference": "949ee8a8cba5fa2abe839c87bf7b885ac3330589",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/0b9ce659aa46aee106f8c66597ea0c070fcd9dff",
+                "reference": "0b9ce659aa46aee106f8c66597ea0c070fcd9dff",
                 "shasum": ""
             },
             "require": {
@@ -1229,7 +1230,7 @@
                 "http",
                 "httplug"
             ],
-            "time": "2018-06-22T12:36:17+00:00"
+            "time": "2018-10-09T06:46:29+00:00"
         },
         {
             "name": "php-http/discovery",
