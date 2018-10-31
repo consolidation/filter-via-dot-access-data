@@ -1,6 +1,6 @@
 {
     "name": "consolidation/filter-via-dot-access-data",
-    "description": "Template project for PHP libraries.",
+    "description": "This project uses dflydev/dot-access-data to provide simple output filtering for applications built with annotated-command / Robo.",
     "license": "MIT",
     "authors": [
         {
