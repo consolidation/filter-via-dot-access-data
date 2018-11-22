@@ -1,6 +1,6 @@
 {
     "name": "consolidation/filter-via-dot-access-data",
-    "description": "Template project for PHP libraries.",
+    "description": "This project uses dflydev/dot-access-data to provide simple output filtering for applications built with annotated-command / Robo.",
     "license": "MIT",
     "authors": [
         {
@@ -10,12 +10,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Consolidation\\Filter\\": "src"
+            "Consolidation\\Filter\\": "../../src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Consolidation\\Filter\\": "tests/src"
+            "Consolidation\\Filter\\": "../../tests/src"
         }
     },
     "require": {
@@ -23,14 +23,13 @@
         "dflydev/dot-access-data": "^1.1.0"
     },
     "require-dev": {
-        "consolidation/Robo": "^1.2.3",
-        "g1a/composer-test-scenarios": "^2",
-        "knplabs/github-api": "^2.7",
-        "php-coveralls/php-coveralls": "^2",
-        "php-http/guzzle6-adapter": "^1.1",
         "phpunit/phpunit": "^5.7.27",
-        "squizlabs/php_codesniffer": "^2.8",
-        "symfony/console": "^2.8|^3|^4"
+        "consolidation/Robo": "^1.2.3",
+        "symfony/console": "^2.8|^3|^4",
+        "knplabs/github-api": "^2.7",
+        "php-http/guzzle6-adapter": "^1.1",
+        "g1a/composer-test-scenarios": "^3",
+        "squizlabs/php_codesniffer": "^2.8"
     },
     "scripts": {
         "phar:install-tools": [
@@ -52,25 +51,19 @@
         ],
         "release": [
             "release VERSION"
-        ],
-        "scenario": "scenarios/install",
-        "post-update-cmd": [
-            "create-scenario phpunit5 'phpunit/phpunit:^5.7.27' --platform-php '5.6.33'",
-            "dependency-licenses"
         ]
     },
     "config": {
-        "optimize-autoloader": true,
-        "sort-packages": true,
         "platform": {
             "php": "5.6.33"
         },
+        "optimize-autoloader": true,
+        "sort-packages": true,
         "vendor-dir": "../../vendor"
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev"
         }
-    },
-    "minimum-stability": "stable"
+    }
 }
