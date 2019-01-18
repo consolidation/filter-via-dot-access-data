@@ -102,14 +102,6 @@ Deploy by the following procedure:
 - Edit the `VERSION` file to contain the version to release, and commit the change.
 - Run `composer release`
 
-## Built With
-
-List significant dependencies that developers of this project will interact with.
-
-* [Composer](https://getcomposer.org/) - Dependency Management
-* [Robo](https://robo.li/) - PHP Task Runner
-* [Symfony](https://symfony.com/) - PHP Framework
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the process for submitting pull requests to us.
@@ -120,17 +112,10 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Greg Anderson** - created project from template.
+* [Greg Anderson](https://github.com/greg-1-anderson)
 
 See also the list of [contributors](https://github.com/consolidation/filter-via-dot-access-data/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-* Thanks to PurpleBooth for the [example README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
