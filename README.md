@@ -2,10 +2,10 @@
 
 This project uses [dflydev/dot-access-data](https://github.com/dflydev/dot-access-data) to provide simple output filtering for applications built with [annotated-command](https://github.com/consolidation/annotated-command) / [Robo](https://github.com/consolidation/robo).
 
-[![Travis CI](https://travis-ci.org/consolidation/filter-via-dot-access-data.svg?branch=master)](https://travis-ci.org/consolidation/filter-via-dot-access-data)
+[![Travis CI](https://travis-ci.org/consolidation/filter-via-dot-access-data.svg?branch=main)](https://travis-ci.org/consolidation/filter-via-dot-access-data)
 [![Windows CI](https://ci.appveyor.com/api/projects/status/o37b8kff7ai4yyer?svg=true)](https://ci.appveyor.com/project/greg-1-anderson/filter-via-dot-access-data)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/consolidation/filter-via-dot-access-data/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/consolidation/filter-via-dot-access-data/?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/consolidation/filter-via-dot-access-data/badge.svg?branch=master)](https://coveralls.io/github/consolidation/filter-via-dot-access-data?branch=master) 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/consolidation/filter-via-dot-access-data/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/consolidation/filter-via-dot-access-data/?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/consolidation/filter-via-dot-access-data/badge.svg?branch=main)](https://coveralls.io/github/consolidation/filter-via-dot-access-data?branch=main) 
 [![License](https://img.shields.io/badge/license-MIT-408677.svg)](LICENSE)
 
 ## Overview
