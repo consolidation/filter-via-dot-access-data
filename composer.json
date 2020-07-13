@@ -23,7 +23,7 @@
         "dflydev/dot-access-data": "^1.1.0"
     },
     "require-dev": {
-        "consolidation/Robo": "^1.2.3",
+        "consolidation/robo": "^1.2.3",
         "symfony/console": "^2.8|^3|^4",
         "knplabs/github-api": "^2.7",
         "php-http/guzzle6-adapter": "^1.1",
