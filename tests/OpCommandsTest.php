@@ -92,6 +92,9 @@ class OpCommandsTest extends TestCase
         $argv = $this->argv(func_get_args());
         list($actualOutput, $statusCode) = $this->execute($argv);
 
+        // Normalize line endings
+        $actualOutput = str_replace(array("\r\n", "\r", "\n"), "\n", $actualOutput);
+
         // Confirm that our output and status code match expectations
         $this->assertStringContainsString($expectedOutput, $actualOutput);
         $this->assertEquals($expectedStatus, $statusCode);
