@@ -54,15 +54,6 @@ The filter decides whether to include or exclude each **top-level element** base
 
 Parenthesis are not supported.
 
-### Commandline Tool
-
-This project is bundled with a simple commandline tool, `dot-process`. It is similar to a simple version of `jq`. It is intended for demonstration purposes only.
-```
-# Write out composer.json in yaml format
-$ dot-process.phar edit composer.json --format=yaml
-```
-This demo tool will become more functional over time. It is only intended to be a demo, though, not a supported utility.
-
 ## Getting Started
 
 To build this project locally, follow the steps below.
