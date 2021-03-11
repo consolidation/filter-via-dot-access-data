@@ -94,6 +94,7 @@ class OpCommandsTest extends TestCase
 
         // Normalize line endings
         $actualOutput = str_replace(PHP_EOL, "\n", $actualOutput);
+        $expectedOutput = str_replace(PHP_EOL, "\n", $expectedOutput);
 
         // Confirm that our output and status code match expectations
         $this->assertStringContainsString($expectedOutput, $actualOutput);
