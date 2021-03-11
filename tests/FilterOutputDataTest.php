@@ -10,7 +10,7 @@ class FilterOutputDataTest extends TestCase
     protected $factory;
     protected $filter;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->factory = LogicalOpFactory::get();
         $this->filter = new FilterOutputData();

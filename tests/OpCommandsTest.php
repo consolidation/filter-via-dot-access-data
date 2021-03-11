@@ -22,7 +22,7 @@ class OpCommandsTest extends TestCase
     /**
      * Instantiate a new runner
      */
-    public function setUp()
+    public function setUp(): void
     {
         // Store the command classes we are going to test
         $this->commandClasses = [ \Consolidation\Filter\Cli\OpCommands::class, \Consolidation\Filter\Hooks\FilterHooks::class ];
@@ -93,7 +93,7 @@ class OpCommandsTest extends TestCase
         list($actualOutput, $statusCode) = $this->execute($argv);
 
         // Confirm that our output and status code match expectations
-        $this->assertContains($expectedOutput, $actualOutput);
+        $this->assertStringContainsString($expectedOutput, $actualOutput);
         $this->assertEquals($expectedStatus, $statusCode);
     }
 
