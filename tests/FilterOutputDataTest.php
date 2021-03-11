@@ -10,7 +10,7 @@ class FilterOutputDataTest extends TestCase
     protected $factory;
     protected $filter;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->factory = LogicalOpFactory::get();
         $this->filter = new FilterOutputData();
@@ -22,7 +22,7 @@ class FilterOutputDataTest extends TestCase
      * Return an array of arrays, each of which contains the parameter
      * values to be used in one invocation of the testExample test function.
      */
-    public function testFilterDataValues()
+    public function filterDataTestValues()
     {
         $source = [
             'a' => ['color' => 'red', 'shape' => 'round', ],
@@ -42,7 +42,7 @@ class FilterOutputDataTest extends TestCase
      * be passed data from the data provider function idendified by the
      * dataProvider annotation.
      *
-     * @dataProvider testFilterDataValues
+     * @dataProvider filterDataTestValues
      */
     public function testFilterData($source, $expr, $expected)
     {

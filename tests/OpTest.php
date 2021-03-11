@@ -13,7 +13,7 @@ class OpTest extends TestCase
      * Return an array of arrays, each of which contains the parameter
      * values to be used in one invocation of the testExample test function.
      */
-    public function testOpsParsingValues()
+    public function opsParsingTestValues()
     {
         return [
             [\Consolidation\Filter\Operators\EqualsOp::class, 'a', 'b', 'a=b',],
@@ -27,7 +27,7 @@ class OpTest extends TestCase
      * be passed data from the data provider function idendified by the
      * dataProvider annotation.
      *
-     * @dataProvider testOpsParsingValues
+     * @dataProvider opsParsingTestValues
      */
     public function testOpsParsing($opName, $key, $comparitor, $expected)
     {
@@ -41,7 +41,7 @@ class OpTest extends TestCase
      * Return an array of arrays, each of which contains the parameter
      * values to be used in one invocation of the testExample test function.
      */
-    public function testOpsEvaluationValues()
+    public function opsEvaluationTestValues()
     {
         return [
             [\Consolidation\Filter\Operators\EqualsOp::class, 'a', 'b', ['a' => 'b'], true,],
@@ -76,7 +76,7 @@ class OpTest extends TestCase
      * be passed data from the data provider function idendified by the
      * dataProvider annotation.
      *
-     * @dataProvider testOpsEvaluationValues
+     * @dataProvider opsEvaluationTestValues
      */
     public function testOpsEvaluation($opName, $key, $comparitor, $source, $expected)
     {
