@@ -25,9 +25,9 @@ class FilterOutputDataTest extends TestCase
     public function filterDataTestValues()
     {
         $source = [
-            'a' => ['color' => 'red', 'shape' => 'round', ],
-            'b' => ['color' => 'blue', 'shape' => 'square', ],
-            'c' => ['color' => 'green', 'shape' => 'triangular', ],
+            'a' => ['color' => 'red', 'shape' => 'round', 'id' => 'a'],
+            'b' => ['color' => 'blue', 'shape' => 'square', 'id' => 'b'],
+            'c' => ['color' => 'green', 'shape' => 'triangular', 'id' => 'c'],
         ];
 
         return [
@@ -37,6 +37,7 @@ class FilterOutputDataTest extends TestCase
             [$source, 'color=red||color=blue||color=green', 'a,b,c', ],
             [$source, 'color*=e&&shape=round&&shape!=square', 'a', ],
             [$source, 'color=red&&shape=round&&color=blue', '', ],
+            [$source, 'id=c&&shape=triangular', 'c', ]
         ];
     }
 
