@@ -35,6 +35,8 @@ class FilterOutputDataTest extends TestCase
             [$source, 'color=blue||shape=triangular', 'b,c', ],
             [$source, 'color=red&&shape=square', '', ],
             [$source, 'color=red||color=blue||color=green', 'a,b,c', ],
+            [$source, 'color*=e&&shape=round&&shape!=square', 'a', ],
+            [$source, 'color=red&&shape=round&&color=blue', '', ],
         ];
     }
 
