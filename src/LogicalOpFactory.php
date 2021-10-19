@@ -94,10 +94,10 @@ class LogicalOpFactory implements FactoryInterface
         $exprSet = [];
         $i = $offset = 0;
         foreach ($matches[0] as $opWithOffset) {
-          list($op, $offset) = $opWithOffset;
-          $expr = substr($expression, $i, $offset - $i);
-          $i = $i + $offset + strlen($op);
-          $exprSet[] = [ "$op$expr", $op, $expr, ];
+            list($op, $offset) = $opWithOffset;
+            $expr = substr($expression, $i, $offset - $i);
+            $i = $i + $offset + strlen($op);
+            $exprSet[] = [ "$op$expr", $op, $expr, ];
         }
         $expr = substr($expression, $offset + strlen($op));
         $exprSet[] = [ "$op$expr", $op, $expr];
