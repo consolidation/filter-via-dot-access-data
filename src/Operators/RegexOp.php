@@ -3,6 +3,7 @@ namespace Consolidation\Filter\Operators;
 
 use Consolidation\Filter\OperatorInterface;
 use Dflydev\DotAccessData\Data;
+use Dflydev\DotAccessData\Exception\DataException;
 
 /**
  * Test for equality
@@ -26,7 +27,12 @@ class RegexOp implements OperatorInterface
      */
     public function test(Data $row)
     {
-        $value = $row->get($this->key);
+        try {
+            $value = $row->get($this->key);
+        } catch (DataException $e) {
+            return false;
+        }
+
         return preg_match($this->comparitor, $value);
     }
 
