@@ -41,13 +41,14 @@ class LogicalOpFactory implements FactoryInterface
     public function evaluate($expression, $default_field = false)
     {
         $exprSet = $this->splitByLogicOp($expression);
-        $result = false;
+        $result = $logicOp = false;
 
         foreach ($exprSet as $exprWithLogicOp) {
-            $logicOp = $exprWithLogicOp[1];
             $expr = $exprWithLogicOp[2];
             $rhs = $this->factory->evaluate($expr, $default_field);
             $result = $this->combineUsingLogicalOp($result, $logicOp, $rhs);
+            // Logical operator between expressions is always one behind.
+            $logicOp = $exprWithLogicOp[1];
         }
 
         return $result;
@@ -92,13 +93,15 @@ class LogicalOpFactory implements FactoryInterface
             return [ [$expression, '', $expression] ];
         }
         $exprSet = [];
-        $i = 0;
-        foreach ($matches as $opWithOffset) {
-            list($op, $offset) = $opWithOffset[0];
-            $expr = substr($expression, $i, $i + $offset);
-            $i = $i + $offset + strlen($op);
+        $i = $offset = 0;
+        foreach ($matches[0] as $opWithOffset) {
+            list($op, $offset) = $opWithOffset;
+            $expr = substr($expression, $i, $offset - $i);
+            $i = $offset + strlen($op);
             $exprSet[] = [ "$op$expr", $op, $expr, ];
         }
+        $expr = substr($expression, $offset + strlen($op));
+        $exprSet[] = [ "$op$expr", $op, $expr];
         return $exprSet;
     }
 
