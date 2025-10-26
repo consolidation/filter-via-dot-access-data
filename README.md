@@ -1,6 +1,6 @@
 # FilterViaDotAccessData
 
-This project uses [dflydev/dot-access-data](https://github.com/dflydev/dot-access-data) to provide simple output filtering for applications built with [annotated-command](https://github.com/consolidation/annotated-command) / [Robo](https://github.com/consolidation/robo).
+This project uses [dflydev/dot-access-data](https://github.com/dflydev/dflydev-dot-access-data) to provide simple output filtering for applications built with [annotated-command](https://github.com/consolidation/annotated-command) / [Robo](https://github.com/consolidation/robo).
 
 [![ci](https://github.com/consolidation/filter-via-dot-access-data/workflows/CI/badge.svg)](https://travis-ci.org/consolidation/filter-via-dot-access-data)
 [![scrutinizer](https://scrutinizer-ci.com/g/consolidation/filter-via-dot-access-data/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/consolidation/filter-via-dot-access-data/?branch=master)
