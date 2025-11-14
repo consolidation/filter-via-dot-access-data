@@ -2,17 +2,32 @@
 
 namespace Consolidation\Filter\Hooks;
 
+use Consolidation\AnnotatedCommand\AnnotatedCommand;
+use Consolidation\AnnotatedCommand\AnnotationData;
 use Consolidation\AnnotatedCommand\CommandData;
 use Consolidation\Filter\LogicalOpFactory;
 use Consolidation\Filter\FilterOutputData;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Yaml\Yaml;
 
 class FilterHooks
 {
+
+    /**
+     * @hook option *
+     */
+    public function addFilterOption(AnnotatedCommand $command, AnnotationData $annotationData)
+    {
+        if ($annotationData->has('filter-output')) {
+            if (!$command->getDefinition()->hasOption('filter')) {
+                // Add the default filter option if the command hasn't defined one.
+                $command->addOption('filter', null, InputOption::VALUE_OPTIONAL, 'Filter output based on provided expression', '');
+            }
+        }
+    }
+
     /**
      * @hook alter @filter-output
-     * @option $filter Filter output based on provided expression
-     * @default $filter ''
      */
     public function filterOutput($result, CommandData $commandData)
     {
